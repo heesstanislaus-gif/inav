@@ -130,4 +130,4 @@
 
 // S1-S7 + PA8 LED pad + PA0 pad = 9 possible outputs.
 // PB9/SDA is NOT included because I2C/Baro is active.
-#define MAX_PWM_OUTPUT_PORTS    9
+#define MAX_PWM_OUTPUT_PORTS    4
