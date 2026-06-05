@@ -25,22 +25,22 @@
 timerHardware_t timerHardware[] = {
     // Logical S1 = Motor 1
     // Physical M1 pad = PA8 / TIM1_CH1
-    DEF_TIM(TIM1, CH1, PA8,  TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 1),
+    DEF_TIM(TIM1, CH1, PA8,  TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 0),
 
     // Logical S2 = Motor 2
     // Physical M3 pad = PA10 / TIM1_CH3
     // Your second motor is soldered to physical M3.
-    DEF_TIM(TIM1, CH3, PA10, TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 6),
+    DEF_TIM(TIM1, CH3, PA10, TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 0),
 
     // Logical S3 = Servo 1
     // Physical LED pad = PA15 / TIM2_CH1
     // Use this for the aileron servo if it is soldered to LED.
-    DEF_TIM(TIM2, CH1, PA15, TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 5),
+    DEF_TIM(TIM2, CH1, PA15, TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),
 
     // Logical S4 = Servo 2
     // Physical RSSI pad = PB1 / TIM3_CH4
     // Use this for the elevator servo after moving it from SDA to RSSI.
-    DEF_TIM(TIM3, CH4, PB1,  TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 2),
+    DEF_TIM(TIM3, CH4, PB1,  TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),
 };
 
 const int timerHardwareCount = sizeof(timerHardware) / sizeof(timerHardware[0]);
