@@ -1,0 +1,52 @@
+name: Build MATEKF411 custom firmware
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - ruibet-build
+      - master
+      - "5.1.0"
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y git make ruby cmake gcc-arm-none-eabi binutils-arm-none-eabi
+
+      - name: Configure
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+
+      - name: Build MATEKF411
+        run: |
+          cd build
+          make MATEKF411
+
+      - name: Show generated files
+        if: always()
+        run: |
+          find build -type f \( -name "*.hex" -o -name "*.bin" -o -name "*.elf" -o -name "*.map" \) -print
+
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: INAV-5.1.0-Ruibet-F4AIO-MATEKF411
+          path: |
+            build/*.hex
+            build/*.bin
+            build/*.elf
+            build/*.map
+          if-no-files-found: error
