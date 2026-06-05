@@ -23,21 +23,31 @@
 #include "drivers/timer.h"
 
 timerHardware_t timerHardware[] = {
-    // DEF_TIM(TIM9, CH2, PA3,   TIM_USE_PPM,   0, 0), // PPM IN
+    // S1 / motor 1
+    DEF_TIM(TIM3, CH1, PB4,  TIM_USE_OUTPUT_AUTO, 0, 0),
 
-    DEF_TIM(TIM3, CH1, PB4,  TIM_USE_OUTPUT_AUTO,  0, 0), // S1  D(1,4,5)
-    DEF_TIM(TIM3, CH2, PB5,  TIM_USE_OUTPUT_AUTO,  0, 0), // S2  D(1,5,5)
-    DEF_TIM(TIM4, CH1, PB6,  TIM_USE_OUTPUT_AUTO,  0, 0), // S3  D(1,0,2)
-    DEF_TIM(TIM4, CH2, PB7,  TIM_USE_OUTPUT_AUTO,  0, 0), // S4  D(1,3,2)
+    // S2 / motor 2
+    DEF_TIM(TIM3, CH2, PB5,  TIM_USE_OUTPUT_AUTO, 0, 0),
 
-    DEF_TIM(TIM2, CH2, PB3,  TIM_USE_OUTPUT_AUTO, 0, 0), // S5  D(1,6,3)
-    DEF_TIM(TIM2, CH3, PB10, TIM_USE_OUTPUT_AUTO, 0, 0), // S6  D(1,1,3)
-    DEF_TIM(TIM2, CH1, PA15, TIM_USE_OUTPUT_AUTO, 0, 0), // S7  D(1,5,3) - clash with S2
+    // S3 / optional motor 3 or servo
+    DEF_TIM(TIM4, CH1, PB6,  TIM_USE_OUTPUT_AUTO, 0, 0),
 
-    DEF_TIM(TIM1, CH1, PA8,  TIM_USE_ANY,   0, 0), //softserial_tx2 - 2812LED TIM_USE_LED   D(2,1,6)
-    DEF_TIM(TIM5, CH1, PA0,  TIM_USE_ANY,   0, 0), //use rssi pad for PPM/softserial_tx1
+    // S4 / servo
+    DEF_TIM(TIM4, CH2, PB7,  TIM_USE_OUTPUT_AUTO, 0, 0),
 
-    //DEF_TIM(TIM5, CH3, PA2,  TIM_USE_ANY,   0, 0), // TX2
+    // S5 / servo
+    DEF_TIM(TIM2, CH2, PB3,  TIM_USE_OUTPUT_AUTO, 0, 0),
+
+    // S6 / servo
+    DEF_TIM(TIM2, CH3, PB10, TIM_USE_OUTPUT_AUTO, 0, 0),
+
+    // S7 / servo
+    DEF_TIM(TIM2, CH1, PA15, TIM_USE_OUTPUT_AUTO, 0, 0),
+
+    // PA8 / LED pad as servo output
+    DEF_TIM(TIM1, CH1, PA8,  TIM_USE_OUTPUT_AUTO, 0, 0),
+
+    // PB9 / SDA pad as servo output
+    DEF_TIM(TIM4, CH4, PB9,  TIM_USE_OUTPUT_AUTO, 0, 0),
 };
-
 const int timerHardwareCount = sizeof(timerHardware) / sizeof(timerHardware[0]);
