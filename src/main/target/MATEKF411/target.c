@@ -24,30 +24,30 @@
 
 timerHardware_t timerHardware[] = {
     // S1 / motor 1
-    DEF_TIM(TIM3, CH1, PB4,  TIM_USE_OUTPUT_AUTO, 0, 0),
+    DEF_TIM(TIM3, CH1, PB4,  TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 0),
 
     // S2 / motor 2
-    DEF_TIM(TIM3, CH2, PB5,  TIM_USE_OUTPUT_AUTO, 0, 0),
+    DEF_TIM(TIM3, CH2, PB5,  TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR, 0, 0),
 
     // S3 / optional motor 3 or servo
-    DEF_TIM(TIM4, CH1, PB6,  TIM_USE_OUTPUT_AUTO, 0, 0),
+    DEF_TIM(TIM4, CH1, PB6,  TIM_USE_MC_MOTOR | TIM_USE_FW_MOTOR | TIM_USE_FW_SERVO, 0, 0),
 
     // S4 / servo
-    DEF_TIM(TIM4, CH2, PB7,  TIM_USE_OUTPUT_AUTO, 0, 0),
+    DEF_TIM(TIM4, CH2, PB7,  TIM_USE_MC_MOTOR | TIM_USE_FW_SERVO, 0, 0),
 
     // S5 / servo
-    DEF_TIM(TIM2, CH2, PB3,  TIM_USE_OUTPUT_AUTO, 0, 0),
+    DEF_TIM(TIM2, CH2, PB3,  TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),
 
     // S6 / servo
-    DEF_TIM(TIM2, CH3, PB10, TIM_USE_OUTPUT_AUTO, 0, 0),
+    DEF_TIM(TIM2, CH3, PB10, TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),
 
     // S7 / servo
-    DEF_TIM(TIM2, CH1, PA15, TIM_USE_OUTPUT_AUTO, 0, 0),
+    DEF_TIM(TIM2, CH1, PA15, TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),
 
     // PA8 / LED pad as servo output
-    DEF_TIM(TIM1, CH1, PA8,  TIM_USE_OUTPUT_AUTO, 0, 0),
+    DEF_TIM(TIM1, CH1, PA8,  TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),
 
     // PA0 / former RSSI/ST1 pad as extra output
-    DEF_TIM(TIM5, CH1, PA0,  TIM_USE_OUTPUT_AUTO, 0, 0),
+    DEF_TIM(TIM5, CH1, PA0,  TIM_USE_MC_SERVO | TIM_USE_FW_SERVO, 0, 0),
 };
 const int timerHardwareCount = sizeof(timerHardware) / sizeof(timerHardware[0]);
